@@ -23,6 +23,7 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
 
 var dc = {};
 
+var searchSnippet = "snippets/search-snippet.html"
 var homeHtml = "snippets/home-snippet.html";
 var allCategoriesUrl =
   "https://davids-restaurant.herokuapp.com/categories.json";
@@ -32,6 +33,7 @@ var menuItemsUrl =
   "https://davids-restaurant.herokuapp.com/menu_items.json?category=";
 var menuItemsTitleHtml = "snippets/menu-items-title.html";
 var menuItemHtml = "snippets/menu-item.html";
+var filterHtml = "snippets/filter-snippet";
 
 // Convenience function for inserting innerHTML for 'select'
 var insertHtml = function (selector, html) {
@@ -42,7 +44,7 @@ var insertHtml = function (selector, html) {
 // Show loading icon inside element identified by 'selector'.
 var showLoading = function (selector) {
   var html = "<div class='text-center'>";
-  html += "<img src='images/ajax-loader.gif'></div>";
+  html += "<div class='loader'></div>";
   insertHtml(selector, html);
 };
 
@@ -84,14 +86,48 @@ $ajaxUtils.sendGetRequest(
   false);
 });
 
+document.addEventListener("DOMContentLoaded", function (event) {
+// showLoading("#main-content");
+$ajaxUtils.sendGetRequest(
+  homeHtml,
+  function (responseText) {
+    document.querySelector("#main-content")
+      .innerHTML = responseText;
+  },
+  false);
+});
+
+dc.loading = function () {
+  showLoading("#main-content");
+  setTimeout(function(){
+    window.location.href='search_results.html';
+  }, 1500);
+}
+
+dc.loadSearchSnippet = function () {
+  showLoading("#main-content");
+  $ajaxUtils.sendGetRequest(
+    searchSnippet,
+    insertHtml("#main-content",searchSnippet),false)
+  console.log("working")
+};
+
+
+dc.loadWatchSnippet = function (categoryShort) {
+  showLoading("#main-content");
+  $ajaxUtils.sendGetRequest(
+    menuItemsUrl + categoryShort,
+    buildAndShowMenuItemsHTML);
+};
+
 // Load the menu categories view
 dc.loadMenuCategories = function () {
   showLoading("#main-content");
   $ajaxUtils.sendGetRequest(
     allCategoriesUrl,
     buildAndShowCategoriesHTML);
+  console.log("working")
 };
-
 
 // Load the menu items view
 // 'categoryShort' is a short_name for a category
@@ -115,7 +151,7 @@ function buildAndShowCategoriesHTML (categories) {
         categoryHtml,
         function (categoryHtml) {
           // Switch CSS class active to menu button
-          switchMenuToActive();
+          // switchMenuToActive();
 
           var categoriesViewHtml =
             buildCategoriesViewHtml(categories,
@@ -171,13 +207,13 @@ function buildAndShowMenuItemsHTML (categoryMenuItems) {
         menuItemHtml,
         function (menuItemHtml) {
           // Switch CSS class active to menu button
-          switchMenuToActive();
+          // switchMenuToActive();
 
           var menuItemsViewHtml =
             buildMenuItemsViewHtml(categoryMenuItems,
                                    menuItemsTitleHtml,
                                    menuItemHtml);
-          insertHtml("#main-content", menuItemsViewHtml);
+          insertHtml("#watch-snippet", menuItemsViewHtml);
         },
         false);
     },
@@ -250,6 +286,10 @@ function buildMenuItemsViewHtml(categoryMenuItems,
   }
 
   finalHtml += "</section>";
+  return finalHtml;
+}
+
+function buildFilterHtml (filterHtml) {
   return finalHtml;
 }
 

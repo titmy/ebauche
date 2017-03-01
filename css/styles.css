@@ -1,21 +1,21 @@
 body {
-  font-size: 16px;
+  font-size: 18px;
   color: #fff;
-  background-color: #61122f;
-  font-family: 'Oxygen', sans-serif;
+  background-color: #677077;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 /** HEADER **/
 #header-nav {
-  background-color: #f6b319;
+  background-color: #f2b632;
   border-radius: 0;
   border: 0;
 }
 
 #logo-img {
-  background: url('../images/restaurant-logo_large.png') no-repeat;
-  width: 150px;
-  height: 150px;
+  background: url('../images/Logo_4.png') no-repeat;
+  width: 400px;
+  height: 80px;
   margin: 10px 15px 10px 0;
 }
 
@@ -23,7 +23,7 @@ body {
   padding-top: 25px;
 }
 .navbar-brand h1 { /* Restaurant name */
-  font-family: 'Lora', serif;
+  font-family: 'Source Sans Pro', sans-serif;
   color: #557c3e;
   font-size: 1.5em;
   text-transform: uppercase;
@@ -39,7 +39,7 @@ body {
 .navbar-brand p { /* Kosher cert */
   color: #000;
   text-transform: uppercase;
-  font-size: .7em;
+  font-size: 0.8em;
   margin-top: 15px;
 }
 .navbar-brand p span { /* Star-K */
@@ -74,7 +74,7 @@ body {
 }
 
 .navbar-header button.navbar-toggle, .navbar-header .icon-bar {
-  border: 1px solid #61122f;
+  border: 1px solid #252839;
 }
 .navbar-header button.navbar-toggle {
   clear: both;
@@ -87,7 +87,7 @@ body {
   margin-top: 30px;
   padding-top: 35px;
   padding-bottom: 30px;
-  background-color: #222;
+  background-color: #252839;
   border-top: 0;
 }
 .panel-footer div.row {
@@ -113,33 +113,155 @@ body {
 /* END FOOTER */
 
 
-
 /* HOME PAGE */
-.container .jumbotron {
-  box-shadow: 0 0 50px #3F0C1F;
-  border: 2px solid #3F0C1F;
+.jumbotron {
+  position: relative;
+  box-shadow: 0 0 50px #b5b5b7;
+  border: 2px solid #b5b5b7;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding: 0;
+
 }
 
-#menu-tile, #specials-tile, #map-tile {
+.overlay {
+  position: absolute;
+  width: 70%;
+  text-align: center;
+  top: 40%;
+  left: 50%;
+  margin-right: -50%;
+  border: 3px solid white;
+  transform: translate(-50%, -50%)
+}
+.overlay h1 {
+  font-size: 2.7em;
+}
+.overlay h2 {
+  font-size: 2em;
+}
+
+.blur{
+  background: rgba(0, 0, 0, 0.75);
+  padding: 3px;
+}
+
+.dflexsearch{
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+}
+
+.dflexsearch--wrapper {
+	height: auto;
+	width: auto;
+	max-width: 100%;
+	overflow: hidden;
+	background: transparent;
+	margin: 0;
+	position: static;
+}
+
+.dflexsearch--form {
+	overflow: hidden;
+	position: relative;
+}
+
+.dflexsearch--input-wrapper {
+	overflow: hidden;
+}
+
+.dflexsearch--input {
+  width: 100%;
+}
+
+.dflexsearch--input {
+  -webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+ 	height: 60px;
+  padding: 0 46px 0 10px;
+	border-color: #888;
+  border-radius: 35px; /* (height/2) + border-width */
+  border-style: solid;
+	border-width: 5px;
+  margin-top: 15px;
+  color: #333;
+  font-family: 'Helvetica', sans-serif;
+	font-size: 26px;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+}
+
+.dflexsearch--submit {
+  position: absolute;
+	right: 0;
+	top: 0;
+	display: block;
+	width: 60px;
+	height: 60px;
+  padding: 0;
+  border: none;
+	margin-top: 15px; /* margin-top + border-width */
+  margin-right: 5px; /* border-width */
+	background: transparent;
+  color: #888;
+  font-family: 'Helvetica', sans-serif;
+  font-size: 40px;
+  line-height: 60px;
+}
+
+.dflexsearch--input:focus {
+  outline: none;
+  border-color: #333;
+}
+
+.dflexsearch--input:focus.flexsearch--submit {
+ 	color: #333;
+}
+
+.dflexsearch--submit:hover {
+  color: #333;
+  cursor: pointer;
+}
+
+::-webkit-input-placeholder {
+	color: #888;
+}
+
+input:-moz-placeholder {
+  color: #888
+}
+
+#menu-tile, #specials-tile, #third_home_box {
   height: 250px;
   width: 100%;
   margin-bottom: 15px;
   position: relative;
-  border: 2px solid #3F0C1F;
+  border: 2px solid #b5b5b7;
   overflow: hidden;
 }
-#menu-tile:hover, #specials-tile:hover, #map-tile:hover {
+#menu-tile:hover, #specials-tile:hover, #third_home_box:hover {
   box-shadow: 0 1px 5px 1px #cccccc;
 }
 #menu-tile {
-  background: url('../images/menu-tile.jpg') no-repeat;
+  background: url('../images/breitling-avenger.jpg') no-repeat;
   background-position: center;
+  background-size:100%;
 }
 #specials-tile {
-  background: url('../images/specials-tile.jpg') no-repeat;
+  background: url('../images/omega-speedmaster.jpg') no-repeat;
   background-position: center;
+  background-size:100% auto;
 }
-#menu-tile span, #specials-tile span, #map-tile span {
+#third_home_box{
+  background: url('../images/tagheuer-slr.jpg') no-repeat;
+  background-position: center;
+  background-size:100% auto;
+}
+#menu-tile span, #specials-tile span, #third_home_box span {
   position: absolute;
   bottom: 0;
   right: 0;
@@ -151,10 +273,16 @@ body {
   color: #fff;
   opacity: .8;
 }
+
+.container .text-center {
+  padding-top: 20px;
+  font-size: 32px;
+}
+
 /* END HOME PAGE */
 
 /* MENU CATEGORIES PAGE */
-.category-tile { 
+.category-tile {
   position: relative;
   border: 2px solid #3F0C1F;
   overflow: hidden;
@@ -183,6 +311,29 @@ body {
 }
 /* END MENU CATEGORIES PAGE */
 
+/*SEARCH RESULTS PAGE*/
+
+#search-title {
+  margin-top: 0;
+  margin-bottom: 30px;
+}
+
+/*LOADER*/
+.loader {
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 1.5s linear infinite;
+    margin: 0 auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
 /* SINGLE CATEGORY PAGE */
 .menu-item-tile {
   margin-bottom: 25px;
@@ -201,7 +352,7 @@ body {
 }
 .menu-item-photo {
   position: relative;
-  border: 2px solid #3F0C1F; 
+  border: 2px solid #3F0C1F;
   overflow: hidden;
   padding: 0;
   margin-right: -15px;
@@ -232,43 +383,26 @@ h3.menu-item-title {
 
 /********** Large devices only **********/
 @media (min-width: 1200px) {
-  .container .jumbotron {
-    background: url('../images/jumbotron_1200.jpg') no-repeat;
-    height: 675px;
-  }
+
 }
 
 /********** Medium devices only **********/
 @media (min-width: 992px) and (max-width: 1199px) {
-  /* Header */
-  #logo-img {
-    background: url('../images/restaurant-logo_medium.png') no-repeat;
-    width: 100px;
-    height: 100px;
-    margin: 5px 5px 5px 0;
-  }
-  /* End Header */
-
-  /* Home Page */
-  .container .jumbotron {
-    background: url('../images/jumbotron_992.jpg') no-repeat;
-    height: 558px;
-  }
-  /* End Home Page */
 }
 
 /********** Small devices only **********/
 @media (min-width: 768px) and (max-width: 991px) {
-  /* Home Page */
-  .container .jumbotron {
-    background: url('../images/jumbotron_768.jpg') no-repeat;
-    height: 432px;
+  body {
+    font-size: 12px;
   }
-  /* End Home Page */
 }
 
 /********** Extra small devices only **********/
 @media (max-width: 767px) {
+
+  body {
+    font-size: 10px;
+  }
   /* Header */
   .navbar-brand {
     padding-top: 10px;
@@ -325,11 +459,11 @@ h3.menu-item-title {
   /* End Footer */
 
   /* Home Page */
-  .container .jumbotron {
+  .jumbotron {
     margin-top: 30px;
     padding: 0;
   }
-  #menu-tile, #specials-tile {
+  #menu-tile, #specials-tile, #third_home_box{
     width: 360px;
     margin: 0 auto 15px;
   }
@@ -354,9 +488,9 @@ h3.menu-item-title {
     font-size: 6vw;
   }
   /* End Header */
-  
+
   /* Home page */
-  #menu-tile, #specials-tile {
+  #menu-tile, #specials-tile, #third_home_box {
     width: 280px;
     margin: 0 auto 15px;
   }
@@ -371,5 +505,20 @@ h3.menu-item-title {
   }
 }
 
+.divider{
+    width:20px;
+    height:1px;
+    display:inline-block;
+    float: left;
+}
 
-
+/* Nav Buttons */
+#nav-list{
+  margin-top: 70px;
+}
+.navbar-collapse .btn {
+  padding: 6px 30px
+}
+.btn{
+  font-size: 16px;
+}
